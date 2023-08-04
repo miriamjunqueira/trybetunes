@@ -24,7 +24,7 @@ function Login() {
   async function handleSubmit(event: FormEvent<HTMLElement>) {
     event.preventDefault();
     setCarregando(true);
-    console.log('Entrei no handleSubmit');
+    // console.log('Entrei no handleSubmit');
     if (valida()) {
       await createUser({ name: login });
       setCarregando(false);
