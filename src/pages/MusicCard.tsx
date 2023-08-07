@@ -34,20 +34,24 @@ function MusicCard({ music }: MusicCardType) {
       <fieldset className="checkImg">
         {favorita
           ? (
-            <label htmlFor={ `amou-${music.trackId}` }>
+            <label
+              htmlFor={ `amou-${music.trackId}` }
+              data-testid={ `checkbox-music-${music.trackId}` }
+            >
               <input
                 type="checkbox"
-                data-testid={ `checkbox-music-${music.trackId}` }
                 id={ `amou-${music.trackId}` }
                 onChange={ handleClickDisliked }
               />
               <img src="/src/images/checked_heart.png" alt="favorite" />
             </label>
           ) : (
-            <label htmlFor={ `naoAmou-${music.trackId}` }>
+            <label
+              htmlFor={ `naoAmou-${music.trackId}` }
+              data-testid={ `checkbox-music-${music.trackId}` }
+            >
               <input
                 type="checkbox"
-                data-testid={ `checkbox-music-${music.trackId}` }
                 id={ `naoAmou-${music.trackId}` }
                 onChange={ handleClickLiked }
               />

@@ -31,10 +31,13 @@ function Album() {
       // console.log('data:');
       // console.log(data);
       // console.log('----');
-      setNomeArtista(data[0].artistName);
-      setNomeAlbum(data[0].collectionName);
+      // setNomeArtista(data[0].artistName);
+      // setNomeAlbum(data[0].collectionName);
 
-      const musicas = data.splice(1);
+      // const musicas = data.splice(1);
+      const [album, ...musicas] = data;
+      setNomeAlbum(album.collectionName);
+      setNomeArtista(album.artistName);
       // console.log('copia apos splice:');
       // console.log(musicas);
       setMusicList(musicas);
