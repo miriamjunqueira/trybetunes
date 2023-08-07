@@ -6,6 +6,18 @@ type MusicCardType = {
 };
 
 function MusicCard({ music }: MusicCardType) {
+  const [favorita, setFavorita] = useState(false);
+
+  function handleClickLiked() {
+    setFavorita(true);
+    console.log('gostou');
+  }
+
+  function handleClickDisliked() {
+    setFavorita(false);
+    console.log('nao gostou');
+  }
+
   return (
     <div>
       <p>{`${music.trackName}`}</p>
@@ -18,6 +30,31 @@ function MusicCard({ music }: MusicCardType) {
         <code>audio</code>
         .
       </audio>
+
+      <fieldset className="checkImg">
+        {favorita
+          ? (
+            <label htmlFor={ `amou-${music.trackId}` }>
+              <input
+                type="checkbox"
+                data-testid={ `checkbox-music-${music.trackId}` }
+                id={ `amou-${music.trackId}` }
+                onChange={ handleClickDisliked }
+              />
+              <img src="/src/images/checked_heart.png" alt="favorite" />
+            </label>
+          ) : (
+            <label htmlFor={ `naoAmou-${music.trackId}` }>
+              <input
+                type="checkbox"
+                data-testid={ `checkbox-music-${music.trackId}` }
+                id={ `naoAmou-${music.trackId}` }
+                onChange={ handleClickLiked }
+              />
+              <img src="/src/images/empty_heart.png" alt="favorite" />
+            </label>
+          ) }
+      </fieldset>
     </div>
   );
 }
