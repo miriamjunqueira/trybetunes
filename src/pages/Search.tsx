@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Album from './Album';
 
@@ -67,14 +68,14 @@ function Search() {
             {listaArtistas.map((artista) => {
               return (
                 <div key={ artista.collectionId }>
-                  <a
-                    href={ `/album/${artista.collectionId}` }
+                  <Link
+                    to={ `/album/${artista.collectionId}` }
                     data-testid={ `link-to-album-${artista.collectionId}` }
+                    key={ artista.collectionId }
                   >
-                    link
+                    <p>{artista.collectionName}</p>
 
-                  </a>
-                  <p>{artista.collectionName}</p>
+                  </Link>
                 </div>
               );
             })}

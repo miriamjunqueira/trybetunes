@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import getMusics from '../services/musicsAPI';
-import { SongType } from '../types';
 import Loading from '../services/Loading';
+import MusicCard from './MusicCard';
 
 function Album() {
   const [musicList, setMusicList] = useState<any[]>([]);
@@ -27,8 +27,7 @@ function Album() {
 
   useEffect(() => {
     async function recebeMusicas() {
-      // setCarregando(true);
-      const data = await getMusics(id);
+      const data = await getMusics(id as string);
       // console.log('data:');
       // console.log(data);
       // console.log('----');
@@ -42,7 +41,7 @@ function Album() {
       setCarregando(false);
     }
     recebeMusicas();
-  }, []);
+  }, [id]);
 
   /* Agora é só renderizar...
   Massssss antes de executar o useEffect,
@@ -60,7 +59,10 @@ function Album() {
             <h4 data-testid="album-name">{`${nomeAlbum}`}</h4>
             {musicList.map((musica) => {
               return (
-                <p key={ musica.trackId }>{`${musica.trackName}`}</p>
+                <MusicCard
+                  key={ musica.trackId }
+                  music={ musica }
+                />
               );
             })}
           </div>
