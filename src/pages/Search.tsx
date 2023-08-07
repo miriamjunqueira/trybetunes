@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Album from './Album';
 
 function Search() {
   const [nomeArtista, setNomeArtista] = useState('');
