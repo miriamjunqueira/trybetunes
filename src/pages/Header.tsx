@@ -35,7 +35,7 @@ function Header() {
             <nav id="nav">
               <NavLink data-testid="link-to-search" to="/search">Search</NavLink>
               {' '}
-              <NavLink data-testid="link-to-favorites" to="/favourites">
+              <NavLink data-testid="link-to-favorites" to="/favorites">
                 Favourites
               </NavLink>
               {' '}
