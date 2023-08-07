@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SongType } from '../types';
 
 type MusicCardType = {
